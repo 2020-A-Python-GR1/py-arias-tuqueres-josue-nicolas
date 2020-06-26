@@ -1,0 +1,3 @@
+Nombre;Fuerza,Mana,Armadura,Danio,Arcana
+Riki;560;243;5.88;63;False
+Alchemist;1;1;1;1;1
