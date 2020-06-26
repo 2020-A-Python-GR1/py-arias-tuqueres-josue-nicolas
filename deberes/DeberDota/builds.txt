@@ -1,0 +1,2 @@
+id;nombre_heroe;lista_items
+1;Riki;['Ethereal Blade']
