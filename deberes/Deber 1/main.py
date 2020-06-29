@@ -1,5 +1,6 @@
 from crud import operacion_crud
 from Heroes import Heroes
+from procesamiento import existe_nombre
 
 def main():
     exit = 0

@@ -1,0 +1,4 @@
+id;nombre_heroe;lista_items
+1;Venomancer;['Pipe of Insight', 'Octarine Core']
+2;Venomancer;['Octarine Core', 'Ethereal Blade']
+3;Puck;['Pipe of Insight']

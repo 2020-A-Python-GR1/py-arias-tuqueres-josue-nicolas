@@ -1,3 +1,4 @@
 Nombre;Tipo;Costo;Activa;Pasiva
 Pipe of Insight;Support;3425;True;True
 Ethereal Blade;Weapons;4500;True;False
+Octarine Core;Magical;5000;False;True
