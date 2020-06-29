@@ -72,3 +72,20 @@ def generar_id_builds():
     except Exception as Error:
         print(f"Error {Error}")
     return str(id)
+
+def existe_nombre(path, nombre, campo):
+    existe = False
+    nombres = []
+    try:
+        f = open(path, "r")
+        lineas = f.readlines()[1:]
+        for linea in lineas:
+            nombres.append(linea.split(";")[campo])
+        if nombre in nombres:
+            existe = True
+        f.close()
+    except Exception as Error:
+        print(f"Error {Error}")
+    return existe
+    
+

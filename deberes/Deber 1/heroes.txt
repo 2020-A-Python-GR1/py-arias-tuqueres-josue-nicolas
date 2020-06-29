@@ -1,3 +1,4 @@
 Nombre;Fuerza,Mana,Armadura,Danio,Arcana
 Riki;560;243;5.88;63;False
-Alchemist;1;1;1;1;1
+Venomancer;580;303;4.33;44;False
+Puck;540;351;0.67;57;False
