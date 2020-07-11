@@ -1,4 +1,5 @@
 path_builds = "./builds.txt"
+path_heores = "./heroes.txt"
 def ver(path):
     try:
         f = open(path, "r")
@@ -40,7 +41,10 @@ def actualizar(path, data):
         print(f"Error {Error}")
 
 
-def eliminar(path, id):
+def eliminar(path, id, index=0):
+    if path_heores == path:
+        eliminar(path_builds, id, 1)
+
     try:
         f = open(path, "r")
         lineas = f.readlines()
@@ -51,7 +55,7 @@ def eliminar(path, id):
     try:
         f = open(path, "w")
         for linea in lineas:
-            if(id != linea.split(";")[0]):
+            if(id != linea.split(";")[index]):
                 f.write(linea)
         f.close()
     except Exception as Error:
