@@ -25,3 +25,10 @@ def input_y_pieza_blanca(columnas):
         if y >= 0 and y < columnas:
             break
     return y
+
+def input_movimiento():
+    while True:
+        y = input("Mover a: ")
+        if y == "derecha" or y == "arriba" or y == "izquierda"  or y == "abajo" :
+            break
+    return y
