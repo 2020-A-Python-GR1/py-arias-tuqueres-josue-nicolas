@@ -4,6 +4,7 @@ from matplotlib import pyplot
 from tkinter import Tk
 from tkinter import messagebox
 from Procesamiento import Procesamiento
+from random import randint
 import my_input
 
 def main():
@@ -44,7 +45,8 @@ def main():
     pyplot.show()
 
     #SELECCIONAR EL ESPACIO EN BLANCO
-    indice_pieza_blanca = [my_input.input_x_pieza_blanca(filas), my_input.input_y_pieza_blanca(columnas)]
+    #indice_pieza_blanca = [my_input.input_x_pieza_blanca(filas), my_input.input_y_pieza_blanca(columnas)]
+    indice_pieza_blanca = [randint(0,filas), randint(0,columnas)]
 
     #CREAR PIEZAS DEL ROMPECABEZAS CON ESPACIO EN BLANCO
     piezas_rompecabezas_blanco = piezas_rompecabezas.copy()
