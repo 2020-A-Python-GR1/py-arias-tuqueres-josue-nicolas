@@ -24,7 +24,7 @@ class Puzzle:
         self.np_image = np.asarray(self.pil_image)
         self.np_image = self.np_image[:self.altura,:self.anchura]
         self.piezas_rompecabezas = self.obtener_piezas_rompecabezas()
-        self.indice_pieza_blanca = [randint(0,self.filas), randint(0,self.columnas)]
+        self.indice_pieza_blanca = [randint(0,self.filas - 1), randint(0,self.columnas-1)]
         self.piezas_rompecabezas_blanco = self.obtener_piezas_rompecabezas_blanco()
         self.piezas_rompecabezas_blanco_verificar = self.piezas_rompecabezas_blanco.copy()
        
@@ -64,33 +64,32 @@ class Puzzle:
                 rompecabezas = np.concatenate((rompecabezas, imagen_recreada_as_array[x+1]), axis = 0)
         return rompecabezas
 
-    def mover(self, movimiento, indice_pieza, piezas_rompecabezas):
-        indice_pieza_anterior = indice_pieza.copy()
-
+    def mover(self, movimiento):
+        indice_pieza_anterior = self.indice_pieza_blanca.copy()
+    
         if movimiento == "arriba":
-            indice_pieza[0] =  indice_pieza[0]-1
+            self.indice_pieza_blanca[0] =  self.indice_pieza_blanca[0]-1
         elif movimiento == "abajo":
-            indice_pieza[0] =  indice_pieza[0]+1
+            self.indice_pieza_blanca[0] =  self.indice_pieza_blanca[0]+1
         elif movimiento == "izquierda":
-            indice_pieza[1] =  indice_pieza[1]-1
+            self.indice_pieza_blanca[1] =  self.indice_pieza_blanca[1]-1
         elif movimiento == "derecha":
-            indice_pieza[1] =  indice_pieza[1]+1
+            self.indice_pieza_blanca[1] =  self.indice_pieza_blanca[1]+1
 
-        aux_pieza_rompecabeza = piezas_rompecabezas[indice_pieza_anterior[0]][indice_pieza_anterior[1]].copy()
-        piezas_rompecabezas[indice_pieza_anterior[0]][indice_pieza_anterior[1]] = piezas_rompecabezas[indice_pieza[0]][indice_pieza[1]]
-        piezas_rompecabezas[indice_pieza[0]][indice_pieza[1]] = aux_pieza_rompecabeza
-
-        return piezas_rompecabezas
+        aux_pieza_rompecabeza = self.piezas_rompecabezas_blanco[indice_pieza_anterior[0]][indice_pieza_anterior[1]].copy()
+        self.piezas_rompecabezas_blanco[indice_pieza_anterior[0]][indice_pieza_anterior[1]] = self.piezas_rompecabezas_blanco[self.indice_pieza_blanca[0]][self.indice_pieza_blanca[1]]
+        self.piezas_rompecabezas_blanco[self.indice_pieza_blanca[0]][self.indice_pieza_blanca[1]] = aux_pieza_rompecabeza
 
 
-    def validar_movimiento(self, indice_pieza, movimiento):
-        if movimiento == "arriba" and (indice_pieza[0]-1) >= 0 and (indice_pieza[0]-1) < self.filas:
+
+    def validar_movimiento(self, movimiento):
+        if movimiento == "arriba" and (self.indice_pieza_blanca[0]-1) >= 0 and (self.indice_pieza_blanca[0]-1) < self.filas:
             return 1
-        elif movimiento == "abajo" and (indice_pieza[0]+1) >= 0 and (indice_pieza[0]+1) < self.filas:
+        elif movimiento == "abajo" and (self.indice_pieza_blanca[0]+1) >= 0 and (self.indice_pieza_blanca[0]+1) < self.filas:
             return 1
-        elif movimiento == "izquierda" and (indice_pieza[1]-1) >= 0 and (indice_pieza[1]-1) < self.columnas:
+        elif movimiento == "izquierda" and (self.indice_pieza_blanca[1]-1) >= 0 and (self.indice_pieza_blanca[1]-1) < self.columnas:
             return 1
-        elif movimiento == "derecha" and (indice_pieza[1]+1) >= 0 and (indice_pieza[1]+1) < self.columnas:
+        elif movimiento == "derecha" and (self.indice_pieza_blanca[1]+1) >= 0 and (self.indice_pieza_blanca[1]+1) < self.columnas:
             return 1
         else:
             return 0
@@ -101,26 +100,26 @@ class Puzzle:
         while n_mov < mov:
             i = randint(0,3)
             if i == 0:
-                if self.validar_movimiento(self.indice_pieza_blanca, "arriba"):
-                    self.piezas_rompecabezas_blanco = self.mover("arriba", self.indice_pieza_blanca, self.piezas_rompecabezas_blanco)
+                if self.validar_movimiento("arriba"):
+                    self.mover("arriba")
                     n_mov += 1
                 #else: 
                 #    print("Movimiento no válido")
             if i == 1:
-                if self.validar_movimiento(self.indice_pieza_blanca, "abajo"):
-                    self.piezas_rompecabezas_blanco = self.mover("abajo", self.indice_pieza_blanca, self.piezas_rompecabezas_blanco)
+                if self.validar_movimiento("abajo"):
+                    self.mover("abajo")
                     n_mov += 1
                 #else: 
                 #    print("Movimiento no válido")
             if i == 2:
-                if self.validar_movimiento(self.indice_pieza_blanca, "derecha"):
-                    self.piezas_rompecabezas_blanco = self.mover("derecha", self.indice_pieza_blanca, self.piezas_rompecabezas_blanco)
+                if self.validar_movimiento("derecha"):
+                    self.mover("derecha")
                     n_mov += 1
                 #else: 
                 #    print("Movimiento no válido")
             if i == 3:
-                if self.validar_movimiento(self.indice_pieza_blanca, "izquierda"):
-                    self.piezas_rompecabezas_blanco = self.mover("izquierda", self.indice_pieza_blanca, self.piezas_rompecabezas_blanco)
+                if self.validar_movimiento("izquierda"):
+                    self.mover("izquierda")
                     n_mov += 1
                 #else: 
                 #    print("Movimiento no válido")
