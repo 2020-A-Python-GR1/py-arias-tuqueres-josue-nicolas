@@ -22,14 +22,12 @@ class Puzzle:
         self.columnas = columnas
         self.pil_image = pil_image
         self.np_image = np.asarray(self.pil_image)
-        self.np_image = self.np_image[:self.altura,:self.anchura]
         self.piezas_rompecabezas = self.obtener_piezas_rompecabezas()
         self.indice_pieza_blanca = [randint(0,self.filas - 1), randint(0,self.columnas-1)]
         self.piezas_rompecabezas_blanco = self.obtener_piezas_rompecabezas_blanco()
         self.piezas_rompecabezas_blanco_verificar = self.piezas_rompecabezas_blanco.copy()
-       
-
-
+        self.mover_piezas_random(1000)
+        
     def obtener_piezas_rompecabezas(self):
         piezas_rompecabezas = []
         for f in range(self.filas):
@@ -123,3 +121,37 @@ class Puzzle:
                     n_mov += 1
                 #else: 
                 #    print("Movimiento no válido")
+
+    def intercambiar(self, indice_pieza):
+
+        if self.verificarMovimiento(indice_pieza):
+            aux_pieza = self.piezas_rompecabezas_blanco[indice_pieza[0]][indice_pieza[1]].copy()
+
+            self.piezas_rompecabezas_blanco[indice_pieza[0]][indice_pieza[1]] = self.piezas_rompecabezas_blanco[self.indice_pieza_blanca[0]][self.indice_pieza_blanca[1]]
+
+            self.piezas_rompecabezas_blanco[self.indice_pieza_blanca[0]][self.indice_pieza_blanca[1]] = aux_pieza
+
+            self.indice_pieza_blanca = indice_pieza
+            return True
+        else:
+            print("Movimiento no permitido")
+            return False
+
+
+    def verificarMovimiento(self, indice_pieza):
+        if (indice_pieza[0] == self.indice_pieza_blanca[0]-1 
+        and indice_pieza[1] == self.indice_pieza_blanca[1] or 
+        
+        indice_pieza[0] == self.indice_pieza_blanca[0]+1 
+        and indice_pieza[1] == self.indice_pieza_blanca[1] or
+
+        indice_pieza[1] == self.indice_pieza_blanca[1]-1 
+        and indice_pieza[0] == self.indice_pieza_blanca[0] or
+
+        indice_pieza[1] == self.indice_pieza_blanca[1]+1 
+        and indice_pieza[0] == self.indice_pieza_blanca[0]):
+
+            return True
+
+        return False
+        
