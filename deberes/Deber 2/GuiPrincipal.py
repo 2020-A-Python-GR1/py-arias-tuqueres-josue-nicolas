@@ -36,28 +36,28 @@ def main():
     root.title("Puzzle") 
     # sets the geometry of main  
     # root window 
-    root.geometry("400x200") 
-
+    #root.geometry("400x200") 
+    root.resizable(False, False)
     miFrameInicio = Frame(root)
     miFrameInicio.pack(side="top")
 
     botonSeleccionar = Button(miFrameInicio, width="20", text = "Seleccionar archivo", command=abrirArchivo)
-    botonSeleccionar.grid(row=0, column=0, padx=5, pady=5)
+    botonSeleccionar.grid(row=0, column=0, padx=10, pady=5)
 
     labelFilas = Label(miFrameInicio, text ="Filas") 
-    labelFilas.grid(row=1, column=0, padx=5, pady=5) 
+    labelFilas.grid(row=1, column=0, padx=10, pady=5) 
 
     entryFilas = Entry(miFrameInicio)
-    entryFilas.grid(row=2, column=0, padx=5, pady=5) 
+    entryFilas.grid(row=2, column=0, padx=10, pady=5) 
 
     labelColumnas = Label(miFrameInicio, text ="Columnas") 
-    labelColumnas.grid(row=3, column=0, padx=5, pady=5)
+    labelColumnas.grid(row=3, column=0, padx=10, pady=5)
 
     entryColumnas = Entry(miFrameInicio)
-    entryColumnas.grid(row=4, column=0, padx=5, pady=5) 
+    entryColumnas.grid(row=4, column=0, padx=10, pady=5) 
 
     botonEnviar = Button(miFrameInicio,text ="JUGAR", width="20", command=lambda:enviar(root,imagenPath, entryFilas.get(), entryColumnas.get())) 
-    botonEnviar.grid(row=5, column=0, padx=5, pady=10)
+    botonEnviar.grid(row=5, column=0, padx=10, pady=10)
 
     root.mainloop() 
 
