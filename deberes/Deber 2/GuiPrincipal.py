@@ -6,7 +6,7 @@ imagenPath = None
 
 def abrirArchivo():
     global imagenPath
-    imagenPath = filedialog.askopenfilename(initialdir="/NICOLAS/EPN/7 SEMESTRE/Github/py-arias-tuqueres-josue-nicolas/deberes/Deber 2/img", title= "Selecciona un archivo",filetypes = (("all files","*.*"),("jpeg files","*.jpg")))
+    imagenPath = filedialog.askopenfilename(initialdir="/NICOLAS/7 SEMESTRE/Github/py-arias-tuqueres-josue-nicolas/deberes/Deber 2/img", title= "Selecciona un archivo",filetypes = (("all files","*.*"),("jpeg files","*.jpg")))
 
 def enviar(root, imagenPath, Filas, Columnas):
     if validar(imagenPath, Filas, Columnas):

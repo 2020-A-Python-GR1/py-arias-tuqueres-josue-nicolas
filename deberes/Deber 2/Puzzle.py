@@ -121,6 +121,9 @@ class Puzzle:
                     n_mov += 1
                 #else: 
                 #    print("Movimiento no válido")
+        if(np.array_equal(self.piezas_rompecabezas_blanco, self.piezas_rompecabezas_blanco_verificar)):
+            self.mover_piezas_random(1000)
+            
 
     def intercambiar(self, indice_pieza):
 
