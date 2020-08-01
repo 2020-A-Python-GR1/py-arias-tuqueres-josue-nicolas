@@ -5,6 +5,7 @@ Created on Sun Jul 26 19:42:19 2020
 @author: Nicolas
 """
 import pandas as pd
+import numpy as np
 import os
 
 path = "./data/artwork_data.csv"
@@ -41,7 +42,11 @@ df5 = pd.read_pickle(pathGuardado)
 
 
 
-
+mylist = list('abcedfghijklmnopqrstuvwxyz')
+myarr = np.arange(26)
+mydict = dict(zip(mylist, myarr))
+ser = pd.Series(mydict) 
+df1 = pd.DataFrame(ser)
 
 
 
