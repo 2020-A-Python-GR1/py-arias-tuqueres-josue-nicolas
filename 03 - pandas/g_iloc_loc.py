@@ -8,7 +8,12 @@ Created on Tue Aug 11 19:14:04 2020
 
 import pandas as pd
 
-path_pickle = r"D:\Nicolas\7 SEMESTRE\Github\py-arias-tuqueres-josue-nicolas\03 - pandas\data\artwork_data.pickle"
+#LAPTOP
+#path_pickle = r"D:\Nicolas\7 SEMESTRE\Github\py-arias-tuqueres-josue-nicolas\03 - pandas\data\artwork_data.pickle"
+
+#PC DE ESCRITORIO
+path_pickle = r"D:\NICOLAS\EPN\7 SEMESTRE\Github\py-arias-tuqueres-josue-nicolas\03 - pandas\data\artwork_data.pickle"
+
 
 df = pd.read_pickle(path_pickle)
 
@@ -48,10 +53,51 @@ tercero = df.iloc[0:10]
 
 tercero = df.iloc[df.index == 1035]
 
-tercero = df.iloc[0:10, 0:3]
+tercero = df.iloc[0:10, 0:3] #Filtrado por indices, po rango de indices 0:4
+
+###################################
+
+datos = {
+    "nota 1":{
+        "pepito":7,
+        "juanita":8,
+        "maria":9
+        },
+    "nota 2":{
+        "pepito":6,
+        "juanita":10,
+        "maria":6
+        },
+    "disciplina":{
+        "pepito":4,
+        "juanita":9,
+        "maria":2
+        }
+    }
+
+notas = pd.DataFrame(datos)
 
 
+condicion_nota_1 = notas["nota 1"] <= 7
 
+condicion_nota_2 = notas["nota 2"] <= 7
+
+condicion_disc = notas["disciplina"] <= 7
+
+mayores_siete = notas.loc[condicion_nota_1] #TODAS LAS COLUMNAS
+
+mayores_siete = notas.loc[condicion_nota_1, ["nota 1"]] #SOLO COLUMNA NOTA 1
+
+pasaron = notas.loc[condicion_nota_1][condicion_disc][condicion_nota_2]
+
+notas.loc["maria","disciplina"] = 10
+
+notas.loc[:,"disciplina"] = 10
+
+
+######## PROMEDIO DE LAS # NOTAS (no1 + no2 + disc) / 3
+
+promedio_notas = notas.sum(axis = 1) / 3
 
 
 
