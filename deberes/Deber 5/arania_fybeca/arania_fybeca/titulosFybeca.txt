@@ -1,0 +1,6 @@
+<200 https://www.fybeca.com/FybecaWeb/pages/search-results.jsf?cat=562&s=0&pp=3000>
+<200 https://www.fybeca.com/FybecaWeb/pages/search-results.jsf?cat=558&s=0&pp=3000>
+<200 https://www.fybeca.com/FybecaWeb/pages/search-results.jsf?cat=627&s=0&pp=3000>
+<200 https://www.fybeca.com/FybecaWeb/pages/search-results.jsf?cat=446&s=0&pp=3000>
+<200 https://www.fybeca.com/FybecaWeb/pages/search-results.jsf?cat=489&s=0&pp=3000>
+<200 https://www.fybeca.com/FybecaWeb/pages/search-results.jsf?cat=537&s=0&pp=3000>
