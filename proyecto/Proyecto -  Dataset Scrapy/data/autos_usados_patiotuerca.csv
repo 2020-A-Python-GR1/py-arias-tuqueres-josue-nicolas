@@ -1,4 +1,4 @@
-MODELO,MARCA,TIPOCOMPRA,ANIOS,KILOMETRAJE,CIUDAD,TIPOPRECIO,PRECIO
+MARCA,MODELO,TIPOVENTA,ANIO,RECORRIDO,CIUDAD,TIPOPRECIO,PRECIO
 Chevrolet,Spark GT,GOLD,2020,6000,Quito,Negociable,12900
 Fiat,Fiorino Fire,GOLD,2008,375000,Quito,Negociable,6900
 Hyundai,Sonata Hybrid,GOLD,2015,80000,Quito,Negociable,15900
@@ -6164,7 +6164,7 @@ Toyota,Prado 3P,STANDAR,2008,230000,Guayaquil,Negociable,16800
 Chevrolet,Aveo Emotion,GOLD,2009,200000,Quito,Negociable,9200
 Audi,A4 1.8T,STANDAR,2010,130000,Guayaquil,Negociable,18800
 Toyota,Prado 5P,GOLD,2005,164020,Cuenca,Negociable,16500
-Ford,F150,GOLD,1900,215000,Guayaquil,Negociable,9500
+Ford,F150,GOLD,1997,215000,Guayaquil,Negociable,9500
 Hyundai,Sonata Hybrid,GOLD,2015,125000,Guayaquil,Negociable,17500
 Chevrolet,Optra Limited,GOLD,2008,185000,Guayaquil,Negociable,8800
 Kia,Sportage Active,GOLD,2013,1750003,Guayaquil,Negociable,15900
